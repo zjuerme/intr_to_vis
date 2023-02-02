@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'svg',
+      useDirtyRect: false
+    });
+    var app = {}; 
+    var option;
+
+    setTimeout(function () {
+  option = {
+    legend: {
+      data: ['Etc', 'Fortified', 'Hard','Red','Rose','White','Sparkling']
+    },
+    tooltip: {
+      trigger: 'axis',
+      showContent: false
+    },
+    dataset: {
+      source: [
+        ['All',  'France', 'UK','Italy','Germany','Austria' ,'Spain', 'Portugal','Hungary','Romania','Bulgaria','Greece','Georgia','Slovenia','Moldova','Croatia'],
+        ['Red', 1296,0, 1108, 7, 17,497, 33,4,4,2,31,7,5,0,4],
+        ['White',  468, 0,377, 116, 23,126, 15,10,2,1,22,6,13,0,2],
+        ['Rose', 31, 0,25, 2, 2,18, 1,0,0,0,3,0,0,1,0],
+        ['Fortified', 5, 0,4, 0,0, 11, 61,0,0,,00,0,0,0,0],
+        ['Sparkling',  286, 1,186, 9, 2,93, 2,0,0,0,2,0,1,1,0],
+        ['Etc',  0, 0, 0, 3, 0,17, 1,0,0,0,0,0,0,0,0],
+        ['Hard',  16, 0,26, 0, 0,1, 0,0,0,0,0,0,0,0,0],
+      ]
+    },
+    xAxis:[ { gridIndex: 0,
+             type: 'category',
+             name: 'country'
+          },
+          { gridIndex: 1,
+            type: 'category',
+            name: 'country'
+    }
+        ],
+    yAxis: [{
+      gridIndex: 0,
+      name : 'Num',
+      max:1300
+    },
+    {
+      gridIndex: 1,
+      name: 'Usage',
+      max: 1700,
+      inverse: true
+    }
+    ],
+    
+    grid: [{ top: '55%',
+            bottom: '30%',
+            right: '10%'
+          },
+          { top: '75%',
+            right: '10%'
+          }
+        ],
+    series: [
+      {  /////////////////////////////////////////7个线条就用7个line
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        name: 'Table',
+        type: 'line',
+        xAxisIndex: 1,
+        yAxisIndex: 1,
+        //color: "black",
+        data: [1672, 0, 1330, 61, 34, 588, 48, 5, 5, 2, 45, 8, 13, 0, 6]
+      },
+      {
+        name: 'Dessert',
+        type: 'line',
+        xAxisIndex: 1,
+        yAxisIndex: 1,
+        data: [49, 0, 112, 26, 6, 39, 44, 8, 1, 1, 4, 3, 0, 0, 0]
+      },
+      {
+        name: 'Appetizer',
+        type: 'line',
+        xAxisIndex: 1,
+        yAxisIndex: 1,
+        data: [ 102 , 1, 59, 3, 0, 42, 3, 0, 0, 0, 1, 1, 0, 0, 0]
+      },
+      {
+        name: 'Appetizer, Dessert',
+        type: 'line',
+        xAxisIndex: 1,
+        yAxisIndex: 1,
+        data: [ 15,0, 74, 11, 0, 25, 7, 0, 0, 0, 1, 1, 0, 0, 0]
+      },
+      {
+        name: 'Appetizer, Table',
+        type: 'line',
+        xAxisIndex: 1,
+        yAxisIndex: 1,    
+        data: [ 259, 0, 112, 15, 4, 57, 10, 1, 0, 0, 7, 0, 6, 2, 0]
+      },
+      {
+        name: 'Table, Dessert',
+        type: 'line',
+        xAxisIndex: 1,
+        yAxisIndex: 1,
+        data: [5, 0, 35, 19, 0, 11, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+      },
+      {
+        name: 'Appetizer, Table, Dessert',
+        type: 'line',
+        xAxisIndex: 1,
+        yAxisIndex: 1,
+        data: [ 0, 0, 4, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      },
+
+
+      {
+        type: 'pie',
+        id: 'pie-country',
+        radius: '10%',
+        center: ['15%', '25%'],////////饼图1位置
+        emphasis: {
+          focus: 'self'
+        },
+        label: {
+          formatter: '{b}{@2012} ({d}%)'
+        },
+        encode: {
+          itemName: 'ALL', /////初始图
+          value: 'France',
+          tooltip: 'France'
+        }
+      }
+    ]
+  };
+  myChart.on('updateAxisPointer', function (event) {
+    const xAxisInfo = event.axesInfo[0];
+    if (xAxisInfo) {
+      const dimension = xAxisInfo.value + 1;
+      myChart.setOption({
+        series: {
+          id: 'pie-country',
+          label: {
+            formatter: '{b}{@[' + dimension + ']} ({d}%)'
+          },
+          encode: {
+            value: dimension,
+            tooltip: dimension
+          }
+        }
+      });
+    }
+  });
+  myChart.setOption(option);
+});
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

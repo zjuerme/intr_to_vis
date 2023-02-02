@@ -1,0 +1,140 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=bar-brush&random=slrvmcih40&renderer=svg
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'svg',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+    let data1 = [0, 0, 3, 1, 17];
+    let data2 = [5, 4, 0, 0, 11];
+    let data3 = [16, 26, 1, 0, 1];
+    let data4 = [1296, 1108, 887, 669, 497];
+    let data5 = [31, 25, 26, 4, 18];
+    let data6 = [286, 186, 24, 9, 93];
+    let data7 = [468, 377, 318, 185, 126];
+    let xAxisData =['France','Italy','USA','Chile','Spain'];
+
+    for (let i = 0; i < 5; i++) {
+      data1.push();
+      data2.push();
+      data3.push();
+      data4.push();
+      data5.push();
+      data6.push();
+      data7.push();
+    }
+    var emphasisStyle = {
+      itemStyle: {
+        shadowBlur: 10,
+      shadowColor: 'rgba(0,0,0,0.3)'
+      }
+    };
+option = {
+  brush: {
+    toolbox: ['rect', 'clear'],
+    xAxisIndex: 0
+  },
+  toolbox: {
+    feature: {
+      magicType: {
+        type: ['stack']
+      },
+      dataView: {}
+    }
+  },
+  tooltip: {},
+  xAxis: {
+    data: xAxisData,
+    name: 'Country',
+    axisLine: { onZero: true },
+    splitLine: { show: false },
+    splitArea: { show: false }
+  },
+  yAxis: {},
+  grid: {
+    bottom: 100
+  },
+  series: [
+    {
+      name: 'Red',
+      type: 'bar',
+      stack: 'one',
+      emphasis: emphasisStyle,
+      data: data1
+    },
+    {
+      name: 'White',
+      type: 'bar',
+      stack: 'two',
+      emphasis: emphasisStyle,
+      data: data2
+    },
+    {
+      name: 'Rose',
+      type: 'bar',
+      stack: 'three',
+      emphasis: emphasisStyle,
+      data: data3
+    },
+    {
+      name: 'Fortified',
+      type: 'bar',
+      stack: 'four',
+      emphasis: emphasisStyle,
+      data: data4
+    },
+    {
+      name: 'Sparkling',
+      type: 'bar',
+      stack: 'five',
+      emphasis: emphasisStyle,
+      data: data5
+    },
+    {
+      name: 'Etc',
+      type: 'bar',
+      stack: 'six',
+      emphasis: emphasisStyle,
+      data: data6
+    },
+    {
+      name: 'Hard',
+      type: 'bar',
+      stack: 'seven',
+      emphasis: emphasisStyle,
+      data: data7
+    }
+  ]
+};
+myChart.on('brushSelected', function (params) {
+  var brushed = [];
+  var brushComponent = params.batch[0];
+  for (var sIdx = 0; sIdx < brushComponent.selected.length; sIdx++) {
+    var rawIndices = brushComponent.selected[sIdx].dataIndex;
+    brushed.push('[Series ' + sIdx + '] ' + rawIndices.join(', '));
+  }
+});
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+  </script>
+</body>
+</html>

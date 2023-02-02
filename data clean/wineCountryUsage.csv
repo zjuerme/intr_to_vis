@@ -1,0 +1,34 @@
+,Table,Dessert,Appetizer,"Appetizer, Dessert","Appetizer, Table","Table, Dessert","Appetizer, Table, Dessert",,
+Chile,825,9,3,2,27,2,0,South America,
+France,1672,49,102,15,259,5,0,Europe,Top
+Italy,1330,112,59,74,112,35,4,Europe,Top
+USA,1103,26,13,12,94,10,1,North America,
+Germany,61,26,3,11,15,19,2,Europe,Center
+Spain,588,39,42,25,57,11,1,Europe,Atlantic
+Australia,497,23,5,8,28,2,0,Oceania,
+New Zealand,112,3,1,0,38,0,0,Oceania,
+Argentina,239,5,2,1,12,1,0,South America,
+Portugal,48,44,3,7,10,1,0,Europe,Atlantic
+South Africa,107,6,1,5,10,1,0,Africa,
+Israel,1,0,0,0,0,0,0,Asia,
+Canada,1,19,0,0,0,1,0,North America,
+Hungary,5,8,0,0,1,0,0,Europe,Center
+Romania,5,1,0,0,0,0,0,Europe,EastSouth
+Austria,34,6,0,0,4,0,0,Europe,Center
+Greece,45,4,1,1,7,0,0,Europe,EastSouth
+Korea,3,2,0,2,3,0,0,Asia,
+Georgia,8,3,1,1,0,0,0,Europe,EastSouth
+Bulgaria,2,1,0,0,0,0,0,Europe,EastSouth
+Uruguay,3,0,0,0,1,0,0,South America,
+UK,0,0,1,0,0,0,0,Europe,Atlantic
+Japan,1,0,0,0,2,0,0,Asia,
+Slovenia,13,0,0,0,6,0,0,Europe,EastSouth
+Moldova,0,0,0,0,2,0,0,Europe,EastSouth
+Croatia,6,0,0,0,0,0,0,Europe,EastSouth
+,,,,,,,,,
+Asia,5,2,0,2,5,0,0,,
+Europe,3817,293,212,134,473,71,7,,
+North America,1104,45,13,12,94,11,1,,
+South America,1067,14,5,3,40,3,0,,
+Africa,107,6,1,5,10,1,0,,
+Oceania,609,26,6,8,66,2,0,,
